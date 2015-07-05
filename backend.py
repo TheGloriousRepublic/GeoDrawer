@@ -1,3 +1,7 @@
+class Matrix:
+    def __init__(self):
+        pass
+
 class Point:
     def __init__(self, (x, y)):
         self.x = x
@@ -10,5 +14,15 @@ class Line:
         else:
             self.m = b.y-a.y/b.x-a.x
 
-        self.a = Point((0, self.m*a.x-a.y))#X intercept, not to be confused with point a
+        self.a = Point((0, self.m*a.x-a.y)) #X intercept, not to be confused with point a
         self.b = Point((0, 0))
+
+class Ray:
+    pass
+
+class Segment:
+    pass
+
+class Triangle:
+    pass
+

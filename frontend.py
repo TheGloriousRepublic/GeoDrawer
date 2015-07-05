@@ -74,7 +74,7 @@ class DrawWidget(tk.Tk):
         self.circlemenu.add_command(label='Draw Circle')
         self.circlemenu.add_command(label='Change Circle')
         self.circleattributes = tk.Menu(self.circlemenu, tearoff=False)
-        self.circlemenu.add_cascade(label='Circle Attributes', menu=circleattribues)
+        self.circlemenu.add_cascade(label='Circle Attributes', menu=self.circleattributes)
         
         self.trianglemenu = tk.Menu(self.polymenu, tearoff=False)
         
@@ -89,14 +89,14 @@ class DrawWidget(tk.Tk):
         self.quadmenu.add_command(label='Change Quadrilateral')
         
         self.quadattributes = tk.Menu(self.quadmenu, tearoff=False)
-        self.quadmenu.add_cascade(label='Triangle Attributes', menu=self.quadattributes)
+        self.quadmenu.add_cascade(label='Quadrilateral Attributes', menu=self.quadattributes)
         
         self.moremenu = tk.Menu(self.polymenu, tearoff=False)
         self.moremenu.add_command(label='Draw Other Polygon')
         self.moremenu.add_command(label='Change Polygon')
         
         self.moreattributes = tk.Menu(self.moremenu, tearoff=False)
-        self.moremenu.add_cascade(label='Triangle Attributes', menu=self.moreattributes)
+        self.moremenu.add_cascade(label='Polygon Attributes', menu=self.moreattributes)
         
         self.menubar.add_cascade(label='Shapes', menu=self.shapemenu)
         self.shapemenu.add_cascade(label='Polygons', menu=self.polymenu)
@@ -109,5 +109,13 @@ class DrawWidget(tk.Tk):
         self.ellipsemenu.add_cascade(label='Circles', menu=self.circlemenu)
 
         self.shapemenu.add_command(label='Delete Shape')
-        
+
+        self.matrixmenu = tk.Menu(self.menubar, tearoff=False)
+        self.matrixmenu.add_command(label='Convert Shape To Matrix')
+        self.matrixmenu.add_command(label='Add Matrices')
+        self.matrixmenu.add_command(label='Multiply Matrix by Scalar')
+        self.matrixmenu.add_command(label='Transpose Matrix')
+        self.matrixmenu.add_command(label='Multiply Matrices')
+        self.menubar.add_cascade(label='Matrices', menu=self.matrixmenu)
+
         self.config(menu=self.menubar)
