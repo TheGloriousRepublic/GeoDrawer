@@ -10,6 +10,8 @@ class DrawWidget(tk.Tk):
         tk.Tk.__init__(self, *args, **kwargs)
         self.c = tk.Canvas()
 
+        #Here starts the menubar. It is a massive tangle of commands with almost no
+        #Logical ordering. Don't try to read it.
         self.menubar = tk.Menu(self)
 
         self.filemenu = tk.Menu(self.menubar, tearoff=False)
@@ -35,18 +37,24 @@ class DrawWidget(tk.Tk):
         self.linemenu.add_command(label='Draw Line')
         self.linemenu.add_command(label='Delete Line')
         self.linemenu.add_command(label='Change Line')
+        self.lineattributes = tk.Menu(self.linemenu, tearoff=False)
+        self.linemenu.add_cascade(label='Line Attributes', menu=self.lineattributes)
         self.linetypemenu.add_cascade(label='Lines', menu=self.linemenu)
 
         self.raymenu = tk.Menu(self.linetypemenu, tearoff=False)
         self.raymenu.add_command(label='Draw Ray')
         self.raymenu.add_command(label='Delete Ray')
         self.raymenu.add_command(label='Change Ray')
+        self.rayattributes = tk.Menu(self.linemenu, tearoff=False)
+        self.raymenu.add_cascade(label='Ray Attributes', menu=self.rayattributes)
         self.linetypemenu.add_cascade(label='Rays', menu=self.raymenu)
 
         self.segmenu = tk.Menu(self.linetypemenu, tearoff=False)
         self.segmenu.add_command(label='Draw Line Segment')
         self.segmenu.add_command(label='Delete Line Segment')
         self.segmenu.add_command(label='Change Line Segment')
+        self.segattributes = tk.Menu(self.linemenu, tearoff=False)
+        self.segmenu.add_cascade(label='Segment Attributes', menu=self.segattributes)
         self.linetypemenu.add_cascade(label='Line Segments', menu=self.segmenu)
         
         self.menubar.add_cascade(label='Lines', menu=self.linetypemenu)
@@ -59,23 +67,36 @@ class DrawWidget(tk.Tk):
         self.ellipsemenu = tk.Menu(self.nonpolymenu, tearoff=False)
         self.ellipsemenu.add_command(label='Draw Ellipse')
         self.ellipsemenu.add_command(label='Change Ellipse')
+        self.ellipseattributes = tk.Menu(self.ellipsemenu, tearoff=False)
+        self.ellipsemenu.add_cascade(label='Ellipse Attributes', menu=self.ellipseattributes)
 
         self.circlemenu = tk.Menu(self.ellipsemenu, tearoff=False)
         self.circlemenu.add_command(label='Draw Circle')
         self.circlemenu.add_command(label='Change Circle')
+        self.circleattributes = tk.Menu(self.circlemenu, tearoff=False)
+        self.circlemenu.add_cascade(label='Circle Attributes', menu=circleattribues)
         
         self.trianglemenu = tk.Menu(self.polymenu, tearoff=False)
         
         self.trianglemenu.add_command(label='Draw Triangle')
         self.trianglemenu.add_command(label='Change Triangle')
+
+        self.triangleattributes = tk.Menu(self.trianglemenu, tearoff=False)
+        self.trianglemenu.add_cascade(label='Triangle Attributes', menu=self.triangleattributes)
         
         self.quadmenu = tk.Menu(self.polymenu, tearoff=False)
         self.quadmenu.add_command(label='Draw Quadrilateral')
         self.quadmenu.add_command(label='Change Quadrilateral')
         
+        self.quadattributes = tk.Menu(self.quadmenu, tearoff=False)
+        self.quadmenu.add_cascade(label='Triangle Attributes', menu=self.quadattributes)
+        
         self.moremenu = tk.Menu(self.polymenu, tearoff=False)
         self.moremenu.add_command(label='Draw Other Polygon')
         self.moremenu.add_command(label='Change Polygon')
+        
+        self.moreattributes = tk.Menu(self.moremenu, tearoff=False)
+        self.moremenu.add_cascade(label='Triangle Attributes', menu=self.moreattributes)
         
         self.menubar.add_cascade(label='Shapes', menu=self.shapemenu)
         self.shapemenu.add_cascade(label='Polygons', menu=self.polymenu)
