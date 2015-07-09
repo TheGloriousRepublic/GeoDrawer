@@ -13,6 +13,12 @@ class DrawWidget(tk.Tk):
 
         self.objects = {}
 
+        self.objects['O'] = {'main':Point((0, 0)), 'color':'black'}
+        self.Draw()
+        
+        self.setupMenubar()
+
+    def setupMenubar(self):
         #Here starts the menubar. It is a massive tangle of commands with almost no
         #Logical ordering. Don't try to read it.
         self.menubar = tk.Menu(self)
@@ -165,7 +171,7 @@ class DrawWidget(tk.Tk):
                     ob['color'] = '#ff0000'
                 print(ob['color'])
                 print(main)
-                self.c.create_oval(main.x-2, 600-main.y-2, main.x+2, 600-main.y+2, fill=ob['color'], outline=ob['color'])
+                self.c.create_oval(main.x+298, 300-main.y-2, main.x+302, 300-main.y+2, fill=ob['color'], outline=ob['color'])
                  
     def Close(self, event=None):
         self.quit()
