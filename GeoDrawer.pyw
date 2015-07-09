@@ -1,6 +1,6 @@
-from frontend import *
+from Files import frontend
 
-root = DrawWidget()
+root = frontend.DrawWidget()
 root.geometry("%dx%d" % (600, 600))
 
 root.mainloop()

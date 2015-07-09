@@ -1,7 +1,4 @@
-try:
-    import Tkinter as tk
-except ImportError:
-    import tkinter as tk
+from interfaces import *
     
 from backend import *
 
@@ -9,6 +6,8 @@ class DrawWidget(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
         self.c = tk.Canvas()
+
+        self.objects = {}
 
         #Here starts the menubar. It is a massive tangle of commands with almost no
         #Logical ordering. Don't try to read it.
@@ -26,7 +25,7 @@ class DrawWidget(tk.Tk):
         self.menubar.add_cascade(label='General', menu=self.generalmenu)
         
         self.pointmenu = tk.Menu(self.menubar, tearoff=False)
-        self.pointmenu.add_command(label='Add Point')
+        self.pointmenu.add_command(label='Add Point', command=self.newpoint)
         self.pointmenu.add_command(label='Delete Point')
         self.pointmenu.add_command(label='Change Point')
 
@@ -138,3 +137,6 @@ class DrawWidget(tk.Tk):
         self.menubar.add_cascade(label='Matrices', menu=self.matrixmenu)
 
         self.config(menu=self.menubar)
+
+    def newpoint(self):
+        pass
