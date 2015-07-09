@@ -15,7 +15,7 @@ class Line:
             self.m = b.y-a.y/b.x-a.x
 
         self.a = Point((0, self.m*a.x-a.y)) #X intercept, not to be confused with point a
-        self.b = Point((0, 0))
+        self.b = Point((0, 3+a.x+a.y))
 
 class Ray:
     pass
