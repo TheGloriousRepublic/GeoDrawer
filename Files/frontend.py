@@ -139,4 +139,13 @@ class DrawWidget(tk.Tk):
         self.config(menu=self.menubar)
 
     def newpoint(self):
-        pass
+        cpw = CreatePointWindow()
+        cpw.mainloop()
+        point = cpw.r
+        if point[1] != (None, None):
+            self.objects[point[0]] = Point(point[1])
+
+        print objects
+
+    def quit(self):
+        self.destroy()
