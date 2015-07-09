@@ -5,7 +5,11 @@ from backend import *
 class DrawWidget(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
-        self.c = tk.Canvas()
+        
+        self.protocol('WM_DELETE_WINDOW', self.Close)
+        
+        self.c = tk.Canvas(self, bg='white')
+        self.c.pack(fill=tk.BOTH, expand=1)
 
         self.objects = {}
 
@@ -139,13 +143,32 @@ class DrawWidget(tk.Tk):
         self.config(menu=self.menubar)
 
     def newpoint(self):
+        print('Creating Point')
         cpw = CreatePointWindow()
         cpw.mainloop()
         point = cpw.r
-        if point[1] != (None, None):
-            self.objects[point[0]] = Point(point[1])
+        if None not in point:
+            self.objects[point[0]] = {'main':Point(point[1])}
+            
+        self.Draw()
 
-        print objects
-
+    def Draw(self):
+        print('Redrawing...')
+        self.c.delete('all')
+        print('Cleared Canvas')
+        for x in self.objects:
+            ob = self.objects[x]
+            main = ob['main']
+            print('Drawing '+str(x))
+            if isinstance(main, Point):
+                if not ob.get('color'): #Set color to red if there isn't one
+                    ob['color'] = '#ff0000'
+                print(ob['color'])
+                print(main)
+                self.c.create_oval(main.x-2, 600-main.y-2, main.x+2, 600-main.y+2, fill=ob['color'], outline=ob['color'])
+                 
+    def Close(self, event=None):
+        self.quit()
+        
     def quit(self):
         self.destroy()

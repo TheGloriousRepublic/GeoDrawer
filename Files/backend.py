@@ -6,6 +6,8 @@ class Point:
     def __init__(self, (x, y)):
         self.x = x
         self.y = y
+    def __repr__(self):
+        return('Point at ('+str(self.x)+', '+str(self.y)+')')
 
 class Line:
     def __init__(self, (a, b)):
@@ -16,6 +18,9 @@ class Line:
 
         self.a = Point((0, self.m*a.x-a.y)) #X intercept, not to be confused with point a
         self.b = Point((0, 3+a.x+a.y))
+        
+    def __repr__(self):
+        return('Line y='+str(self.m)+'x+'+str(self.b))
 
 class Ray:
     def __init__(self, (a, b)):
