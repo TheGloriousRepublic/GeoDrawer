@@ -26,3 +26,14 @@ class Segment:
 class Triangle:
     pass
 
+class Quadrilateral:
+    pass
+
+class Ellipse:
+    pass
+
+class Circle(Ellipse):
+    pass
+
+class Arc:
+    pass
