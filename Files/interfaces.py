@@ -3,6 +3,8 @@ try:
 except ImportError:
     import tkinter as tk
 
+from backend import *
+
 class CreateObjectWindow(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
@@ -65,7 +67,7 @@ class CreatePointWindow(CreateObjectWindow):
         self.title('Create Point') #Window Title
 
     def getret(self, event=None):
-        return (self.namebox.get(), (float(self.xe.get()), float(self.ye.get()))) #Return tuple "(Name, (X, Y))"
+        return (self.namebox.get(), Point((float(self.xe.get()), float(self.ye.get())))) #Return tuple "(Name, (X, Y))"
 
     def getblank(self, event=None): #Return point on cancellation
         return(None, (None, None))

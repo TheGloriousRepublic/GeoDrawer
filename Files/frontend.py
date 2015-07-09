@@ -135,7 +135,7 @@ class DrawWidget(tk.Tk):
         self.matrixmenu = tk.Menu(self.menubar, tearoff=False)
         self.matrixmenu.add_command(label='Convert Shape To Matrix')
         self.matrixmenu.add_command(label='Add Matrices')
-        self.matrixmenu.add_command(label='Multiply Matrix by Scalar')
+        self.matrixmenu.add_command(label='Operate Matrix by Scalar')
         self.matrixmenu.add_command(label='Transpose Matrix')
         self.matrixmenu.add_command(label='Multiply Matrices')
         self.menubar.add_cascade(label='Matrices', menu=self.matrixmenu)
@@ -148,7 +148,7 @@ class DrawWidget(tk.Tk):
         cpw.mainloop()
         point = cpw.r
         if None not in point:
-            self.objects[point[0]] = {'main':Point(point[1])}
+            self.objects[point[0]] = {'main':point[1]}
             
         self.Draw()
 
