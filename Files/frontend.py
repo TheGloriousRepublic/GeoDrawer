@@ -1,6 +1,6 @@
-from interfaces import *
+from Files.interfaces import *
     
-from backend import *
+from Files.backend import *
 
 class DrawWidget(tk.Tk):
     def __init__(self, *args, **kwargs):
@@ -149,7 +149,7 @@ class DrawWidget(tk.Tk):
 
     def newpoint(self):
         print('Creating Point')
-        cpw = CreatePointWindow()
+        cpw = interfaces.CreatePointWindow()
         cpw.mainloop()
         point = cpw.r
         if None not in point:

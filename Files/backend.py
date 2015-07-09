@@ -17,14 +17,18 @@ class Matrix:
         return(str(self.width)+' by '+str(self.height)+' Matrix')
 
 class Point:
-    def __init__(self, (x, y)):
-        self.x = x
-        self.y = y
+    def __init__(self, xy):
+        self.x = xy[0]
+        self.y = xy[1]
+        
     def __repr__(self):
         return('Point at ('+str(self.x)+', '+str(self.y)+')')
 
 class Line:
-    def __init__(self, (a, b)):
+    def __init__(self, ab):
+        a=ab[0]
+        b=ab[1]
+        
         if b.x-a.x == 0:
             self.m = float('inf')
         else:
@@ -37,7 +41,10 @@ class Line:
         return('Line y='+str(self.m)+'x+'+str(self.b))
 
 class Ray:
-    def __init__(self, (a, b)):
+    def __init__(self, ab):
+        a=ab[0]
+        b=ab[1]
+        
         self.endpoint = a
         if b.x-a.x == 0:
             self.m = float('inf')
@@ -48,7 +55,10 @@ class Ray:
         self.b = Point((0, 3+a.x+a.y))
 
 class Segment:
-    def __init__(self, (a, b)):
+    def __init__(self, ab):
+        a=ab[0]
+        b=ab[1]
+        
         self.endpoints = {a, b}
         if b.x-a.x == 0:
             self.m = float('inf')
