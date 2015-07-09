@@ -29,6 +29,9 @@ class DrawWidget(tk.Tk):
         self.pointmenu.add_command(label='Add Point')
         self.pointmenu.add_command(label='Delete Point')
         self.pointmenu.add_command(label='Change Point')
+
+        self.pointscan = tk.Menu(self.pointmenu, tearoff=False)
+        self.pointmenu.add_cascade(label='Scan Point', menu=self.pointscan)
         self.menubar.add_cascade(label='Points', menu=self.pointmenu)
         
         self.linetypemenu = tk.Menu(self.menubar, tearoff=False)
@@ -39,6 +42,8 @@ class DrawWidget(tk.Tk):
         self.linemenu.add_command(label='Change Line')
         self.lineattributes = tk.Menu(self.linemenu, tearoff=False)
         self.linemenu.add_cascade(label='Line Attributes', menu=self.lineattributes)
+        self.linescan = tk.Menu(self.linemenu, tearoff=False)
+        self.linemenu.add_cascade(label='Scan Line', menu=self.linescan)
         self.linetypemenu.add_cascade(label='Lines', menu=self.linemenu)
 
         self.raymenu = tk.Menu(self.linetypemenu, tearoff=False)
@@ -47,6 +52,8 @@ class DrawWidget(tk.Tk):
         self.raymenu.add_command(label='Change Ray')
         self.rayattributes = tk.Menu(self.linemenu, tearoff=False)
         self.raymenu.add_cascade(label='Ray Attributes', menu=self.rayattributes)
+        self.rayscan = tk.Menu(self.raymenu, tearoff=False)
+        self.raymenu.add_cascade(label='Scan Ray', menu=self.rayscan)
         self.linetypemenu.add_cascade(label='Rays', menu=self.raymenu)
 
         self.segmenu = tk.Menu(self.linetypemenu, tearoff=False)
@@ -55,6 +62,8 @@ class DrawWidget(tk.Tk):
         self.segmenu.add_command(label='Change Line Segment')
         self.segattributes = tk.Menu(self.linemenu, tearoff=False)
         self.segmenu.add_cascade(label='Segment Attributes', menu=self.segattributes)
+        self.segscan = tk.Menu(self.segmenu, tearoff=False)
+        self.segmenu.add_cascade(label='Scan Segment', menu=self.segscan)
         self.linetypemenu.add_cascade(label='Line Segments', menu=self.segmenu)
         
         self.menubar.add_cascade(label='Lines', menu=self.linetypemenu)
@@ -69,12 +78,16 @@ class DrawWidget(tk.Tk):
         self.ellipsemenu.add_command(label='Change Ellipse')
         self.ellipseattributes = tk.Menu(self.ellipsemenu, tearoff=False)
         self.ellipsemenu.add_cascade(label='Ellipse Attributes', menu=self.ellipseattributes)
+        self.ellipsescan = tk.Menu(self.ellipsemenu, tearoff=False)
+        self.ellipsemenu.add_cascade(label='Scan Ellipse', menu=self.ellipsescan)
 
         self.circlemenu = tk.Menu(self.ellipsemenu, tearoff=False)
         self.circlemenu.add_command(label='Draw Circle')
         self.circlemenu.add_command(label='Change Circle')
         self.circleattributes = tk.Menu(self.circlemenu, tearoff=False)
         self.circlemenu.add_cascade(label='Circle Attributes', menu=self.circleattributes)
+        self.circlescan = tk.Menu(self.circlemenu, tearoff=False)
+        self.circlemenu.add_cascade(label='Scan Circle', menu=self.circlescan)
         
         self.trianglemenu = tk.Menu(self.polymenu, tearoff=False)
         
@@ -83,6 +96,8 @@ class DrawWidget(tk.Tk):
 
         self.triangleattributes = tk.Menu(self.trianglemenu, tearoff=False)
         self.trianglemenu.add_cascade(label='Triangle Attributes', menu=self.triangleattributes)
+        self.trianglescan = tk.Menu(self.trianglemenu, tearoff=False)
+        self.trianglemenu.add_cascade(label='Scan Triangle', menu=self.trianglescan)
         
         self.quadmenu = tk.Menu(self.polymenu, tearoff=False)
         self.quadmenu.add_command(label='Draw Quadrilateral')
@@ -90,6 +105,8 @@ class DrawWidget(tk.Tk):
         
         self.quadattributes = tk.Menu(self.quadmenu, tearoff=False)
         self.quadmenu.add_cascade(label='Quadrilateral Attributes', menu=self.quadattributes)
+        self.quadscan = tk.Menu(self.quadmenu, tearoff=False)
+        self.quadmenu.add_cascade(label='Scan Quadrilateral', menu=self.quadscan)
         
         self.moremenu = tk.Menu(self.polymenu, tearoff=False)
         self.moremenu.add_command(label='Draw Other Polygon')
@@ -97,6 +114,8 @@ class DrawWidget(tk.Tk):
         
         self.moreattributes = tk.Menu(self.moremenu, tearoff=False)
         self.moremenu.add_cascade(label='Polygon Attributes', menu=self.moreattributes)
+        self.morescan = tk.Menu(self.moremenu, tearoff=False)
+        self.moremenu.add_cascade(label='Scan Polygon', menu=self.morescan)
         
         self.menubar.add_cascade(label='Shapes', menu=self.shapemenu)
         self.shapemenu.add_cascade(label='Polygons', menu=self.polymenu)
