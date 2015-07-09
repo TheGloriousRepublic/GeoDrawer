@@ -140,10 +140,9 @@ class DrawWidget(tk.Tk):
 
         self.matrixmenu = tk.Menu(self.menubar, tearoff=False)
         self.matrixmenu.add_command(label='Convert Shape To Matrix')
-        self.matrixmenu.add_command(label='Add Matrices')
+        self.matrixmenu.add_command(label='Operate on Matrices')
         self.matrixmenu.add_command(label='Operate Matrix by Scalar')
         self.matrixmenu.add_command(label='Transpose Matrix')
-        self.matrixmenu.add_command(label='Multiply Matrices')
         self.menubar.add_cascade(label='Matrices', menu=self.matrixmenu)
 
         self.config(menu=self.menubar)
