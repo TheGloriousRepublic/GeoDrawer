@@ -7,3 +7,5 @@ GeoDrawer is a tool designed for doing geometric calculations with a simple, eas
 GeoDrawer allow the user to do a wide variety of geometric functions, including graphing functions, drawing objects (points, lines, and shapes) and finding related figures and values.
 
 GeoDrawer is planned to allow for useful features outside of just being a high-level calculator, such as a simple, customized scripting engine and allowing for extensions to be used.
+
+**NOTE: THIS PROGRAM IS NOT YET COMPLETE**
