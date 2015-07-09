@@ -1,6 +1,17 @@
 class Matrix:
-    def __init__(self):
-        pass
+    def __init__(self, width, height, default=0):
+        self.width=width
+        self.height=height
+        self.list = [[default]*width]*height
+
+    def __getitem__(self, i):
+        return self.list[i[0]][i[1]]
+
+    def __repr__(self):
+        r = []
+        for x in self.list:
+            r.append(' '.join([str(y) for y in x]))
+        return '\n'.join(r)
 
 class Point:
     def __init__(self, (x, y)):
@@ -64,3 +75,5 @@ class Circle(Ellipse):
 
 class Arc:
     pass
+
+repr(Matrix(5, 5))
