@@ -13,6 +13,9 @@ class Matrix:
             r.append(' '.join([str(y) for y in x]))
         return '\n'.join(r)
 
+    def __str__(self):
+        return(str(self.width)+' by '+str(self.height)+' Matrix')
+
 class Point:
     def __init__(self, (x, y)):
         self.x = x
@@ -75,5 +78,3 @@ class Circle(Ellipse):
 
 class Arc:
     pass
-
-repr(Matrix(5, 5))
