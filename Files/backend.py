@@ -105,7 +105,8 @@ class Shape:
     pass
 
 class Polygon(Shape):
-    pass
+    def __init__(self, *vertices):
+        
 
 class Triangle(Polygon):
     pass

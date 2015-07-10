@@ -10,4 +10,6 @@ GeoDrawer is planned to allow for useful features outside of just being a high-l
 
 **NOTE: THIS PROGRAM IS NOT YET COMPLETE**
 
-**NOTE: THIS PORGRAM WILL REQUIRE PYTHON 3.5 UPON COMPLETION DUE TO USE OF THE MATRIX MULTIPLICATION OPERATOR AND ELEMENT-WISE MULTIPLICATION**
+## Dependencies
+* Python 3.5
+* PyParsing (do ```pip install pyparsing``` to get it.)
