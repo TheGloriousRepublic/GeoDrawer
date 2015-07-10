@@ -6,8 +6,6 @@ class Matrix:
         self.list = [[default]*width]*height
 
     def __getitem__(self, i):
-        print(type(i))
-        print(i)
         if type(i) == slice:
             print('WIP')
         elif type(i) == tuple:
@@ -122,5 +120,3 @@ class Circle(Ellipse):
 
 class Arc:
     pass
-
-Matrix(3, 3)[(0, 0):(1, 1)]
