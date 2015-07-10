@@ -18,7 +18,9 @@ class MatrixInput(tk.Text):
 
         for x in range(len(text)):
             for y in range(len(x)):
-                matrix[x, y] = text[x][y]
+                r[x, y] = text[x][y]
+
+        return r
 
 class CreateObjectWindow(tk.Tk):
     def __init__(self, *args, **kwargs):
