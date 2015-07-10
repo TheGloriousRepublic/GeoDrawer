@@ -166,8 +166,6 @@ class DrawWidget(tk.Tk):
             if isinstance(main, Point):
                 if not ob.get('color'): #Set color to red if there isn't one
                     ob['color'] = '#ff0000'
-                print(ob['color'])
-                print(main)
                 self.c.create_oval(main.x+298, 300-main.y-2, main.x+302, 300-main.y+2, fill=ob['color'], outline=ob['color'])
                  
     def Close(self, event=None):
