@@ -9,3 +9,5 @@ GeoDrawer allow the user to do a wide variety of geometric functions, including 
 GeoDrawer is planned to allow for useful features outside of just being a high-level calculator, such as a simple, customized scripting engine and allowing for extensions to be used.
 
 **NOTE: THIS PROGRAM IS NOT YET COMPLETE**
+
+**NOTE: THIS PORGRAM WILL REQUIRE PYTHON 3.5 UPON COMPLETION DUE TO USE OF THE MATRIX MULTIPLICATION OPERATOR AND ELEMENT-WISE MULTIPLICATION**

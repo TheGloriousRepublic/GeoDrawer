@@ -32,11 +32,11 @@ class DrawWidget(tk.Tk):
         self.menubar.add_cascade(label='File', menu=self.filemenu)
 
         self.generalmenu = tk.Menu(self.menubar, tearoff=False)
+        self.generalmenu.add_command(label='Delete Object')
         self.menubar.add_cascade(label='General', menu=self.generalmenu)
         
         self.pointmenu = tk.Menu(self.menubar, tearoff=False)
         self.pointmenu.add_command(label='Add Point', command=self.newpoint)
-        self.pointmenu.add_command(label='Delete Point')
         self.pointmenu.add_command(label='Change Point')
 
         self.pointscan = tk.Menu(self.pointmenu, tearoff=False)
@@ -47,7 +47,6 @@ class DrawWidget(tk.Tk):
 
         self.linemenu = tk.Menu(self.linetypemenu, tearoff=False)
         self.linemenu.add_command(label='Draw Line')
-        self.linemenu.add_command(label='Delete Line')
         self.linemenu.add_command(label='Change Line')
         self.lineattributes = tk.Menu(self.linemenu, tearoff=False)
         self.linemenu.add_cascade(label='Line Attributes', menu=self.lineattributes)
@@ -57,7 +56,6 @@ class DrawWidget(tk.Tk):
 
         self.raymenu = tk.Menu(self.linetypemenu, tearoff=False)
         self.raymenu.add_command(label='Draw Ray')
-        self.raymenu.add_command(label='Delete Ray')
         self.raymenu.add_command(label='Change Ray')
         self.rayattributes = tk.Menu(self.linemenu, tearoff=False)
         self.raymenu.add_cascade(label='Ray Attributes', menu=self.rayattributes)
@@ -67,7 +65,6 @@ class DrawWidget(tk.Tk):
 
         self.segmenu = tk.Menu(self.linetypemenu, tearoff=False)
         self.segmenu.add_command(label='Draw Line Segment')
-        self.segmenu.add_command(label='Delete Line Segment')
         self.segmenu.add_command(label='Change Line Segment')
         self.segattributes = tk.Menu(self.linemenu, tearoff=False)
         self.segmenu.add_cascade(label='Segment Attributes', menu=self.segattributes)
@@ -135,8 +132,6 @@ class DrawWidget(tk.Tk):
         self.shapemenu.add_cascade(label='Non-Polygons', menu=self.nonpolymenu)
         self.nonpolymenu.add_cascade(label='Ellipses', menu=self.ellipsemenu)
         self.ellipsemenu.add_cascade(label='Circles', menu=self.circlemenu)
-
-        self.shapemenu.add_command(label='Delete Shape')
 
         self.matrixmenu = tk.Menu(self.menubar, tearoff=False)
         self.matrixmenu.add_command(label='Convert Shape To Matrix')
