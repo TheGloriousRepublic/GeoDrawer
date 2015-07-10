@@ -3,7 +3,10 @@ try:
 except ImportError:
     import tkinter as tk
 
-from Files.backend import *
+try:
+    from Files.backend import *
+except ImportError:
+    from backend import *
 
 class MatrixInput(tk.Text):
     def read(self):

@@ -1,6 +1,9 @@
-from Files.interfaces import *
-    
-from Files.backend import *
+try:
+    from Files.interfaces import *
+    from Files.backend import *
+except ImportError:
+    from interfaces import *
+    from backend import *
 
 class DrawWidget(tk.Tk):
     def __init__(self, *args, **kwargs):
