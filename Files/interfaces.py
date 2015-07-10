@@ -5,6 +5,21 @@ except ImportError:
 
 from Files.backend import *
 
+class MatrixInput(tk.Text):
+    def read(self):
+        text = self.get(tk.START, tk.END)
+        text = text.split('\n')
+        for x in range(len(text)):
+            text[x] = text[x].split()
+            for y in range(len(text[x])):
+                text[x][y] = float(text[x][y])
+
+        r = Matrix(len(text[0]), len(text))
+
+        for x in range(len(text)):
+            for y in range(len(x)):
+                matrix[x, y] = text[x][y]
+
 class CreateObjectWindow(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
