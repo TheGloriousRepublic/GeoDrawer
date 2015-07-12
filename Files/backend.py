@@ -1,4 +1,12 @@
+import sys
 import math
+
+try:
+    from Files.expressionparser import evalexp
+except ImportError:
+    from expressionparser import evalexp
+
+pyver = sys.version_info[0]
 
 infinity = float('inf')
 

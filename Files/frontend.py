@@ -37,7 +37,17 @@ class DrawWidget(tk.Tk):
 
         self.generalmenu = tk.Menu(self.menubar, tearoff=False)
         self.generalmenu.add_command(label='Delete Object')
+        self.calcmenu = tk.Menu(self.generalmenu, taroff=False)
+        self.calcmenu.add_command(label='Standard', command=self.stacalc)
+        self.calcmenu.add_command(label='Scientific', command=self.scicalc)
+        self.calcmenu.add_command(label='Programmer', command=self.progcalc)
+        self.calcmenu.add_command(label='Statistics', command=self.statcalc)
+        self.generalmenu.add_cascade(label='Calculator', menu=self.calcmenu)
         self.menubar.add_cascade(label='General', menu=self.generalmenu)
+
+        self.funcmenu = tk.Menu(self.menubar, tearoff=False)
+        self.funcmenu.add_command(label='Graph Function')
+        self.menubar.add_cascade(label='Functions', menu=self.funcmenu)
         
         self.pointmenu = tk.Menu(self.menubar, tearoff=False)
         self.pointmenu.add_command(label='Add or Set Point', command=self.newpoint)
@@ -147,18 +157,39 @@ class DrawWidget(tk.Tk):
         self.Draw()
 
     def newline(self):
-        pritn('Creating Line')
+        print('Creating Line')
         clw = CreateLineWindow()
-        clw.mainloop
+        clw.mainloop()
         line = cpw.r
         if None not in point:
             self.objects[point[0]] = {'main':line[1]}
             
         self.Draw()
 
+    def stacalc(self):
+        clcw = StandardCalculatorWindow()
+        clcw.mainloop()
+
+    def scicalc(self):
+        clcw = ScientificCalculatorWindow()
+        clcw.mainloop()
+
+    def progcalc(self):
+        clcw = ProgrammerCalculatorWindow()
+        clcw.mainloop()
+
+    def statcalc(self):
+        clcw = StatisticsCalculatorWindow()
+        clcw.mainloop()
+        
     def noimage(self):
-        import tkMessageBox
-        tkMessageBox.showwarning('No Image Export', 'Image exporting not available! Use screenshots for now!')
+        if pyver == 2:
+            import tkMessageBox
+            tkMessageBox.showwarning('No Image Export', 'Image exporting not available! Use screenshots for now!')
+        elif pyver == 3:
+            from Tkinter import messagebox
+            messagebox.showwarning('No Image Export', 'Image exporting not available! Use screenshots for now!')
+
 
     def Draw(self):
         print('Redrawing...')

@@ -96,6 +96,23 @@ class CreateLineWindow(CreateObjectWindow):
     def __init__(self, *args, **kwargs):
         CreateObjectWindow.__init__(self, *args, **kwargs)
 
+class CalculatorWindow(tk.Tk):
+    def __init__(self, *args, **kwargs):
+        tk.Tk.__init__(self, *args, **kwargs)
+        self.stuff = None
+
+class StandardCalculatorWindow(CalculatorWindow):
+    pass
+
+class ScientificCalculatorWindow(CalculatorWindow):
+    pass
+
+class ProgrammerCalculatorWindow(CalculatorWindow):
+    pass
+
+class StatisticsCalculatorWindow(CalculatorWindow):
+    pass
+
 if __name__ == '__main__': #Test
     cpw = CreatePointWindow()
     cpw.mainloop()
